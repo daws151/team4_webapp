@@ -19,20 +19,29 @@
             var response = await fetch(url);
             if(!response.ok){
                 throw new Error("Error occurred, status code = " + response.status);
+                $("#PackageId").val("");
+                $("#pkgName").val("");
+                $("#pkgStartDate").val("");
+                $("#pkgEndDate").val("");
+                $("#pkgDesc").val("");
+                $("#pkgBasePrice").val("");
+                $("#pkgAgencyCommission").val("");
             }
             var packageJSON = await response.json();
             $("#PackageId").val(packageJSON.PackageId);
             $("#pkgName").val(packageJSON.pkgName);
-            var startDate2 = new Date(Date.parse(packageJSON.pkgStartDate));
-            // var startDate = startDate2.toISOString();
+            var startDate = new Date(Date.parse(packageJSON.pkgStartDate)).toISOString().split('T')[0];
+            var startDate2 = packageJSON.pkgStartDate;
+            console.log(startDate);
             console.log(startDate2);
-            $("#pkgStartDate").val(startDate2);
+            $("#pkgStartDate").val(startDate);
             // startDate2.setDate(startDate2.getDate(packageJSON.pkgStartDate));
             // $("#pkgStartDate").html($("#pkgStartDate").format(startDate2, 'dd MMMM yyyy'));
             // var startDate = packageJSON.pkgStartDate;
             // console.log(startDate);
             // $("#pkgStartDate").val(startDate);
-            var endDate = dayjs(packageJSON.pkgEndDate).format('YYYY-MMM-DD');
+            // var endDate = dayjs(packageJSON.pkgEndDate).format('YYYY-MMM-DD');
+            var endDate = new Date(Date.parse(packageJSON.pkgEndDate)).toISOString().split('T')[0];
             console.log(endDate);
             $("#pkgEndDate").val(endDate);
             $("#pkgDesc").val(packageJSON.pkgDesc);
@@ -43,6 +52,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<h1>Select a vacation package to see its details</h1>
 <select id="packageselect" onchange="fetchPackage(this.value)">
     <option value="">Select a package to view details</option>
 </select>

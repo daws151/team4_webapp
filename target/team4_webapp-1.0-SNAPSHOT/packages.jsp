@@ -9,8 +9,9 @@
             var packages = await fetch(url);
             var packagesJSON = await packages.json();
             for (i=0;i<packagesJSON.length;i++){
-                $("#packageselect").append("<option value='" + packagesJSON[i].PackageId + "'>"
-                    + packagesJSON[i].pkgName + "</option>");
+                $("#packageselect").append("<option value='" + packagesJSON[i].PackageId + "'>" + packagesJSON[i].pkgName +"</option>");
+                // + packagesJSON[i].pkgStartDate + packagesJSON[i].pkgEndDate+
+                // packagesJSON[i].pkgDesc + packagesJSON[i].pkgBasePrice + packagesJSON[i].pkgAgencyCommission
             }
         }
         async function fetchPackage(id){
@@ -18,19 +19,30 @@
             var response = await fetch(url);
             if(!response.ok){
                 throw new Error("Error occurred, status code = " + response.status);
+                $("#PackageId").val("");
+                $("#pkgName").val("");
+                $("#pkgStartDate").val("");
+                $("#pkgEndDate").val("");
+                $("#pkgDesc").val("");
+                $("#pkgBasePrice").val("");
+                $("#pkgAgencyCommission").val("");
             }
             var packageJSON = await response.json();
             $("#PackageId").val(packageJSON.PackageId);
             $("#pkgName").val(packageJSON.pkgName);
-            var startDate2 = new Date(packageJSON.pkgStartDate);
-            var startDate = startDate2.toISOString();
+            var startDate = new Date(Date.parse(packageJSON.pkgStartDate)).toISOString().split('T')[0];
+            var startDate2 = packageJSON.pkgStartDate;
+            console.log(startDate);
+            console.log(startDate2);
             $("#pkgStartDate").val(startDate);
             // startDate2.setDate(startDate2.getDate(packageJSON.pkgStartDate));
             // $("#pkgStartDate").html($("#pkgStartDate").format(startDate2, 'dd MMMM yyyy'));
             // var startDate = packageJSON.pkgStartDate;
             // console.log(startDate);
             // $("#pkgStartDate").val(startDate);
-            var endDate = dayjs(packageJSON.pkgEndDate).format('yyyy MMM dd');
+            // var endDate = dayjs(packageJSON.pkgEndDate).format('YYYY-MMM-DD');
+            var endDate = new Date(Date.parse(packageJSON.pkgEndDate)).toISOString().split('T')[0];
+            console.log(endDate);
             $("#pkgEndDate").val(endDate);
             $("#pkgDesc").val(packageJSON.pkgDesc);
             $("#pkgBasePrice").val(packageJSON.pkgBasePrice);
@@ -56,6 +68,7 @@
     $(document).ready(function(){
         fetchPackages();
     });
+
 </script>
 <footer>
     <jsp:include page="footer.jsp"/>
