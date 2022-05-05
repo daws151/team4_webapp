@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,17 @@
 <body>
 <jsp:include page="header.jsp"/>
 <h1>Travel Experts Employee Login</h1>
-<form action="ValidateServlet" method="POST">
+<form action="AuthenticateServlet" method="POST">
     Username: <input type="text" name="empUsername"><br/>
     Password: <input type="password" name="password"><br/>
+    <input type="hidden" id="agentId" name="agentId">
     <input type="submit" value="Login">
 </form>
+
+<%
+    String agentId = request.getParameter("agentid");
+
+%>
 <footer>
     <jsp:include page="footer.jsp"/>
 </footer>

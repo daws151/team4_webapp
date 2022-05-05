@@ -35,12 +35,6 @@
             console.log(startDate);
             console.log(startDate2);
             $("#pkgStartDate").val(startDate);
-            // startDate2.setDate(startDate2.getDate(packageJSON.pkgStartDate));
-            // $("#pkgStartDate").html($("#pkgStartDate").format(startDate2, 'dd MMMM yyyy'));
-            // var startDate = packageJSON.pkgStartDate;
-            // console.log(startDate);
-            // $("#pkgStartDate").val(startDate);
-            // var endDate = dayjs(packageJSON.pkgEndDate).format('YYYY-MMM-DD');
             var endDate = new Date(Date.parse(packageJSON.pkgEndDate)).toISOString().split('T')[0];
             console.log(endDate);
             $("#pkgEndDate").val(endDate);

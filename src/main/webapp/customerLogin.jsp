@@ -7,7 +7,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <h1>Travel Experts Employee Login</h1>
-<form action="ValidateServlet" method="POST">
+<form action="AuthenticateServlet" method="POST">
     Username: <input type="text" name="custUsername"><br/>
     Password: <input type="password" name="password"><br/>
     <input type="submit" value="Login">
