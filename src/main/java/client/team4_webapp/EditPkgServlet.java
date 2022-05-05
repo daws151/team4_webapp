@@ -4,8 +4,8 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "EditPkgServlet", value = "/edit-package")
+public class EditPkgServlet extends HttpServlet {
     private String message;
 
     public void init() {
