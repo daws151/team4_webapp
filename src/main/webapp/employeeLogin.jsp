@@ -8,8 +8,8 @@
 <body>
 <jsp:include page="header.jsp"/>
 <h1>Travel Experts Employee Login</h1>
-<form action="AuthenticateServlet" method="POST">
-    Username: <input type="text" name="empUsername"><br/>
+<form action="AuthenticateServlet" method="GET">
+    Agent Id: <input type="number" name="agentId"><br/>
     Password: <input type="password" name="password"><br/>
     <input type="hidden" id="agentId" name="agentId">
     <input type="submit" value="Login">
