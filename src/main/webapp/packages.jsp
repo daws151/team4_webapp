@@ -6,23 +6,37 @@
     <script src="packageFunctions.js"></script>
 </head>
 <body>
+<div class="container">
 <jsp:include page="header.jsp"/>
-<h1>Select a vacation package to see its details</h1>
-<select id="packageselect" onchange="fetchPackage(this.value)">
-    <option value="">Select a package to view details</option>
-</select>
+<h3>Vacation packages currently available</h3>
 <form>
-    Id:<input id="PackageId" type="number" disabled="disabled" /><br>
-    Name:<input id="pkgName" type="text"/><br>
-    Start Date:<input id="pkgStartDate" type="date"/><br>
-    End Date:<input id="pkgEndDate" type="date"/><br>
-    Description:<input id="pkgDesc" type="text"/><br>
-    Base Price:<input id="pkgBasePrice" type="number" step="0.01"/><br>
-    Agency Commission:<input id="pkgAgencyCommission" type="number" step="0.01"/><br>
-    <button type="button" onclick="postPackage()">Update Package</button>
-    <button type="button" onclick="addPackage()">Add New Package</button>
+    <div class="row">
+    <div class="col">
+    <div class="form-group">
+        <select class="form-select" id="packageselect" onchange="fetchPackage(this.value)">
+            <option value="">Select a package to view details</option>
+        </select>
+    Id:<input class="form-control" id="PackageId" type="number" disabled="disabled" /><br>
+    Name:<input class="form-control" id="pkgName" type="text"/><br>
+    Start Date:<input class="form-control" id="pkgStartDate" type="date"/><br>
+    End Date:<input class="form-control" id="pkgEndDate" type="date"/><br>
+    Description:<input class="form-control" id="pkgDesc" type="text"/><br>
+    Base Price:<input class="form-control" id="pkgBasePrice" type="number" step="0.01"/><br>
+    Agency Commission:<input class="form-control" id="pkgAgencyCommission" type="number" step="0.01"/><br>
+    <button type="button" class="btn btn-primary" onclick="postPackage()">Update Package</button>
+    <button type="button" class="btn btn-primary" onclick="addPackage()">Add New Package</button>
+    <button type="button" class="btn btn-primary" onclick="deletePackage()">Delete Package</button>
+    </div>
+        </div>
+        <div class="col">
+            <img src="Pier.jpg" class="img-fluid"/>
+        </div>
+    </div>
 </form>
 
+    <p id="message"><br></p>
+    <a href="AuthenticateServlet?logout=true">Logout</a>
+    <%=(request.getParameter("message")!=null)?request.getParameter("message"):""%>
 <script>
     $(document).ready(function(){
         fetchPackages();
@@ -32,6 +46,6 @@
 <footer>
     <jsp:include page="footer.jsp"/>
 </footer>
+</div>
 </body>
-
 </html>

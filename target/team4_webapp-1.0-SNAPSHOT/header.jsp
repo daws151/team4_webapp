@@ -1,40 +1,35 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Travel Experts</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="packages.jsp">Packages</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="customerLogin.jsp">Customer Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="employeeLogin.jsp">Employee Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="register.jsp">Register</a>
-            </li>
-<%--            <li class="nav-item dropdown">--%>
-<%--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                    Dropdown--%>
-<%--                </a>--%>
-<%--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-<%--                    <a class="dropdown-item" href="#">Action</a>--%>
-<%--                    <a class="dropdown-item" href="#">Another action</a>--%>
-<%--                    <div class="dropdown-divider"></div>--%>
-<%--                    <a class="dropdown-item" href="#">Something else here</a>--%>
-<%--                </div>--%>
-<%--            </li>--%>
 
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Travel Experts</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.jsp">Home
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.jsp">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customerLogin.jsp">Customer Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="employeeLogin.jsp">Employee Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.jsp">Register</a>
+                </li>
+            </ul>
+
+        </div>
     </div>
 </nav>
+

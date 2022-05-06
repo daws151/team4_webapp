@@ -63,7 +63,7 @@ async function postPackage() {
             throw new Error(message);
         }
         const data = await response.json();
-        $("#message").html(data.message);
+        $("#message").text(data);
     } catch (e) {
         console.log("Error: " + e);
     }
@@ -92,6 +92,25 @@ async function addPackage()
             });
         if (!response.ok) {
             const message = "Insert failed: status=" + response.status;
+            throw new Error(message);
+        }
+        const data = await response.json();
+        $("#message").html(data.message);
+    } catch (e) {
+        console.log("Error: " + e);
+    }
+}
+
+async function deletePackage()
+{
+    var url = "http://localhost:8081/team4_server_war_exploded/package/deletepackage/" + $("#PackageId").val();
+    try {
+        const response = await fetch(url,
+            {
+                method: "delete"
+            });
+        if (!response.ok) {
+            const message = "Delete failed: status=" + response.status;
             throw new Error(message);
         }
         const data = await response.json();

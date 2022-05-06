@@ -21,11 +21,12 @@ public class AuthenticateServlet extends HttpServlet {
         String password = request.getParameter("password");
         String custUsername = request.getParameter("custUsername");
         String logout = request.getParameter("logout");
+        String message = request.getParameter("message");
         HttpSession session = request.getSession();
 
         if (logout != null) {
             session.invalidate();
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("index.jsp?message=Logged out");
         }
 
         // Agent login
@@ -39,19 +40,26 @@ public class AuthenticateServlet extends HttpServlet {
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
             int found = rs.getInt(1);
+//            String username = rs.getString(2);
             rs.close();
             stmt.close();
             conn.close();
 
             if (found>0){
                 session.setAttribute("agentId", agentId);
+//                session.setAttribute("username", username);
+                session.setAttribute("message", message);
+//                Cookie sessionDataCookie=new Cookie("sessionData", username + "#" + session.getId());
+//                response.addCookie(sessionDataCookie);
                 response.sendRedirect("packages.jsp");
             }
             else{
                 session.invalidate();
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("packages.jsp");
             }
         }
+        else //Missing user details
+            response.sendRedirect("employeeLogin.jsp?message=Both username and password are required");
     }
 
 
