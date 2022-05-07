@@ -1,3 +1,9 @@
+<%--Author: Brett Dawson
+Last Modified: 2022-05-07
+
+Harv, please note that I ended up abandoning this page. Due to time constraints, I was doing the authentication in a
+non-secure way. Decided to stop work on this and direct my efforts elsewhere.
+--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.sql.*"%>
 <%@page import="java.util.List"%>
@@ -27,7 +33,7 @@
 <jsp:include page="header.jsp"/>
 <%= (request.getParameter("message")!=null)?request.getParameter("message"):"" %>
 <h1>Travel Experts Employee Login</h1>
-<form action="AuthenticateServlet" method="GET">
+<form action="AuthenticateServlet" method="GET"> <%-- Using a GET method for this form's request submission is not secure. --%>>
     Agent Id: <input type="number" name="agentId"><br/>
     Password: <input type="password" name="password"><br/>
 <%--    <input type="hidden" id="username" name="username">--%>

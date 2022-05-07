@@ -1,5 +1,5 @@
 <%--Author: Brett Dawson--%>
-<%--Last updated: May 7, 2022--%>
+<%--Last updated: 2022-05-07--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -41,8 +41,8 @@
     $(document).ready(function(){
         fetchPackages();
     });
-    /*Get dropdown list to re-populate after database changes have been made. It introduces a noticeable "flicker" when
-    a user clicks, not
+    /* The function below gets the dropdown list to re-populate after database changes have been made. It introduces
+    a noticeable flicker when a user clicks on the dropdown selector which isn't ideal.
     */
 
     $("#packageselect").click(function(){

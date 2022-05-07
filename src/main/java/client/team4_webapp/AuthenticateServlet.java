@@ -1,3 +1,13 @@
+/* Author: Brett Dawson
+   Last modified: 2022-05-07
+*/
+/* Harv, please note that this does not work as intended, was sending back a blank page after entering credentials.
+ Would need some more debugging. I ended up abandoning work on this because it wasn't a secure way of authenticating
+ a user anyway. Should not be done with a GET request that includes the user id/name and password in the URL. Rather,
+ it should be done with a POST request. Because we built a REST API for this project, we could have it return a token
+ that could be used for authentication purposes. Ran out of time to implement something like this.
+ */
+
 package client.team4_webapp;
 
 import javax.servlet.*;

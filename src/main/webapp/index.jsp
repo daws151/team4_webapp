@@ -1,3 +1,5 @@
+<%--Author: Brett Dawson--%>
+<%--Last Modified: 2022-05-07--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
         <img src="hongkong.jpg" class="img-fluid"/>
             <br />
         </div>
-            <%=(request.getParameter("message")!=null)?request.getParameter("message"):""%>
+<%--            <%=(request.getParameter("message")!=null)?request.getParameter("message"):""%>--%>
     </div>
 <footer>
     <br />
