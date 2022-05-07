@@ -63,7 +63,7 @@ async function postPackage() {
             throw new Error(message);
         }
         const data = await response.json();
-        $("#message").text(data);
+        $("#message").html(data.message);
     } catch (e) {
         console.log("Error: " + e);
     }

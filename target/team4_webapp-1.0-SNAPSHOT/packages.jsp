@@ -1,10 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
     <jsp:include page="head.jsp"/>
-    <script src="packageFunctions.js"></script>
-</head>
+<%--    <script src="packageFunctions.js"></script>--%>
 <body>
 <div class="container">
 <jsp:include page="header.jsp"/>
@@ -41,6 +39,19 @@
     $(document).ready(function(){
         fetchPackages();
     });
+
+    $("#packageselect").click(function(){
+        $("#packageselect").empty();
+        fetchPackages();
+    })
+    /* Trying to get dropdown list to re-populate after database changes. The below commented-out block accomplishes this,
+     but it regenerates the whole list each time.
+    */
+   // $(document).ready(function(){
+   //     $("#packageselect").click(function() {
+   //         fetchPackages();
+   //     })
+   // });
 
 </script>
 <footer>

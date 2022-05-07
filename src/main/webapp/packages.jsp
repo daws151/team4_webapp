@@ -1,10 +1,10 @@
+<%--Author: Brett Dawson--%>
+<%--Last updated: May 7, 2022--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
     <jsp:include page="head.jsp"/>
-    <script src="packageFunctions.js"></script>
-</head>
+
 <body>
 <div class="container">
 <jsp:include page="header.jsp"/>
@@ -39,6 +39,14 @@
     <%=(request.getParameter("message")!=null)?request.getParameter("message"):""%>
 <script>
     $(document).ready(function(){
+        fetchPackages();
+    });
+    /*Get dropdown list to re-populate after database changes have been made. It introduces a noticeable "flicker" when
+    a user clicks, not
+    */
+
+    $("#packageselect").click(function(){
+        $("#packageselect").empty();
         fetchPackages();
     });
 
